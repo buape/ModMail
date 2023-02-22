@@ -24,3 +24,5 @@ COPY packages/bot ./packages/bot
 RUN yarn turbo run build
 
 RUN yarn workspaces focus --all --production
+
+CMD yarn start
