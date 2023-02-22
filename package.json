@@ -27,6 +27,7 @@
 		"deploy-commands": "rimraf ./packages/bot/dist && turbo run --no-cache build --filter ./packages/bot && dotenv -e .env -v DEPLOY=true -- node --es-module-specifier-resolution=node --enable-source-maps ./packages/bot/dist/index.js",
 		"start-bot": "dotenv -e .env -- node --es-module-specifier-resolution=node --enable-source-maps ./packages/bot/dist/index.js",
 		"start-api": "dotenv -e .env -- node --es-module-specifier-resolution=node --enable-source-maps ./packages/api/dist/index.js",
+		"start": "dotenv -e .env -- yarn deploy-commands && yarn prisma migrate deploy && yarn start-bot", 
 		"prepare": "is-ci || husky install",
 		"update": "yarn upgrade-interactive"
 	},
