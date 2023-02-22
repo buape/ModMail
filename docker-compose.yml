@@ -18,12 +18,11 @@ services:
       timeout: 5s
 
   bot:
-    image: chatsift/modmail
     build:
       context: ./
       dockerfile: ./Dockerfile
     env_file:
-      - ./.env
+      - stack.env
     environment:
       DATABASE_URL: 'postgresql://modmail:admin@postgres:5432/modmail'
     restart: unless-stopped
